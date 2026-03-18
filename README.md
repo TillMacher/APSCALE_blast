@@ -154,17 +154,6 @@ options:
 -update_taxids, -u    Update NCBI taxid backbone
 
 
-## Remote blast
-
-_Apscale blast allows the automatical usage of the NCBI blastn webpage, including the filtering of raw hits and creation of taxonomy table._
-
-_NCBI Genbank is a public resource, so usage limitations apply to this script. Datasets that involve large numbers of BLAST searches should use one of the [provided local databases](https://github.com/TillMacher/apscale_blast?tab=readme-ov-file#available-databases)._
-
-_Requests will be rate-limited to 10 requests per day (1000 sequences) to avoid overloading the server._
-
-_Run the remote blast on weekends or between 9 pm and 5 am Eastern time on weekdays._
-
-
 ## Benchmark
 
 ### v1.0.2 with db release 2024_09

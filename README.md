@@ -125,33 +125,45 @@ IMPORTANT: Please cite the used database accordingly!
 
 ## Options
 
-### BLASTn & Filtering
+### Main Settings
 
-options:
+| Argument              | Description                                                                                        | Default    |
+|-----------------------|----------------------------------------------------------------------------------------------------|------------|
+| `-database`, `-db`    | Path to the local reference database.                                                              | *required* |
+| `-query_fasta`, `-q`  | Path to the query FASTA file.                                                                      | *required* |
+| `-out`, `-o`          | Output directory. A new folder will be created here.                                               | `./blastn` |
 
--h, --help: show this help message and exit
+### BLASTn Settings
 
--database DATABASE, -db DATABASE: PATH to local database. Use "remote" to blast against the complete GenBank database (might be slow)
+| Argument              | Description                                                                                        | Default        |
+|-----------------------|----------------------------------------------------------------------------------------------------|----------------|
+| `-n_cores`            | Number of CPU cores to use.                                                                        | CPU count - 2  |
+| `-task`               | BLASTn task: `blastn`, `megablast`, or `dc-megablast`.                                             | `megablast`    |
+| `-subset_size`        | Number of sequences per FASTA subset.                                                              | `100`          |
+| `-max_target_seqs`    | Maximum number of hits retained per query. Larger values increase runtimes and storage needs.      | `20`           |
 
--blastn_exe BLASTN_EXE: PATH to blast executable. [DEFAULT: blastn]
+### Filter Settings
 
--query_fasta QUERY_FASTA, -q QUERY_FASTA: PATH to fasta file.
+| Argument              | Description                                                                                        | Default          |
+|-----------------------|----------------------------------------------------------------------------------------------------|------------------|
+| `-thresholds`         | Taxonomic similarity thresholds (comma-separated).                                                 | `97,95,90,87,85` |
+| `-filter`             | Filtering mode: `1` = e-value → similarity, `2` = similarity → e-value, `3` = similarity           | `2`              |
+| `-masking`            | Pass this flag to disable masking. Masking is enabled by default.                                  | enabled          |
+| `-rating_range`       | Range of allowed rating values.                                                                    | `5`              |
+| `-sim_range`          | Value that is subtracted from the highest similarity to retain hits.                               | `0`              |
 
--n_cores N_CORES: Number of CPU cores to use. [DEFAULT: CPU count - 1]
+### Re-BLAST Settings
 
--task TASK: Blastn task: blastn, megablast, or dc-megablast. [DEFAULT: blastn]
+| Argument              | Description                                                                                        | Default |
+|-----------------------|----------------------------------------------------------------------------------------------------|---------|
+| `-reblast_db`, `-db2` | Path to an optional secondary database for re-BLAST. Use `"boldigger"` for BOLDigger3 assignment. | —       |
+| `-reblast_sim`        | Similarity threshold for re-BLASTing hits against `-db2`.                                          | `98`    |
 
--out OUT, -o OUT: PATH to output directory. A new folder will be created here. [DEFAULT: ./]
+### Misc
 
--subset_size SUBSET_SIZE: Number of sequences per query fasta subset. [DEFAULT: 100]
-
--max_target_seqs MAX_TARGET_SEQS: Number of hits retained from the blast search. Larger values increase runtimes and storage needs. [DEFAULT: 20]
-
--masking MASKING: Activate masking [DEFAULT="Yes"]
-
--thresholds THRESHOLDS: Taxonomy filter thresholds. [DEFAULT: 97,95,90,87,85]
-
--update_taxids, -u    Update NCBI taxid backbone
+| Argument              | Description                                                                                        | Default  |
+|-----------------------|----------------------------------------------------------------------------------------------------|----------|
+| `-blastn_exe`         | Path to the BLASTn executable.                                                                     | `blastn` |
 
 
 ## Benchmark

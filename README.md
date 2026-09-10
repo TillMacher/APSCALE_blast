@@ -48,7 +48,7 @@ Camacho, C., Coulouris, G., Avagyan, V., Ma, N., Papadopoulos, J., Bealer, K., &
 
 Apscale-blast uses pre-compiled databases. These databases will be tested and should prevent user-error. However, custom databases can also be created using [these scripts](https://github.com/TillMacher/apscale_blast/tree/main/db_creator), which are used to create the pre-compiled databases.
 
-The [pre-compiled databases are available under the following server](https://seafile.rlp.net/d/474b9682a5cb4193a6ad/) and will be updated regularly.
+The [pre-compiled databases are available under the following server](https://seafile.rlp.net/d/c172d076de1e4c45b594/) and will be updated regularly.
 
 IMPORTANT: Please cite the used database accordingly!
 
